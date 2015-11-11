@@ -1,3 +1,5 @@
-## User Authentication With Passport and Express 4
+## Authentication Template
 
-View the blog post here: http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4
+authentication-template for express 4
+
+- ignored files: `.env`, `node_modules`
