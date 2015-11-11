@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+  </head>
+  <body>
+    <br>
+    <header class="container">
+      <ul class="nav nav-tabs nav-justified">
+        <li role="presentation" {{#equal active 'home'}}class="active"{{/equal}}><a href="/">Home</a></li>
+        <li role="presentation" {{#equal active 'login'}}class="active"{{/equal}}><a href="/auth/login">Login</a></li>
+        <li role="presentation" {{#equal active 'register'}}class="active"{{/equal}}><a href="/auth/register">Register</a></li>
+      </ul>
+    </header>
+
+    {{{body}}}
+  </body>
+</html>
