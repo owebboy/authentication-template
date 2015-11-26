@@ -1,3 +1,6 @@
+// dotenv (environment variables) (include .env)
+require('dotenv').load();
+
 // dependencies
 var express = require('express');
 var path = require('path');
