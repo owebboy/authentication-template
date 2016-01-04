@@ -8,8 +8,32 @@
   <body>
     <br>
     <header class="container">
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <ul class="nav navbar-nav">
+            <li {{#equal active 'home'}}class="active"{{/equal}}><a href="/">Home</a></li>
+            {{#if user}}
+            <li {{#equal active 'users'}}class="active"{{/equal}}><a href="/users">Users</a></li>
+            {{/if}}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {{#if user}}
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/user/{{user.id}}">@{{user.username}} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/auth/update">Settings</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/auth/logout">Logout</a></li>
+              </ul>
+            </li>
+            {{else}}
+            <li {{#equal active 'login'}}class="active"{{/equal}}><a href="/auth/login">Login</a></li>
+            <li {{#equal active 'register'}}class="active"{{/equal}}><a href="/auth/register">Register</a></li>
+            {{/if}}
+          </ul>
+        </div>
+      </nav>
       <ul class="nav nav-tabs nav-justified">
-        <li role="presentation" {{#equal active 'home'}}class="active"{{/equal}}><a href="/">Home</a></li>
         <li role="presentation" {{#equal active 'login'}}class="active"{{/equal}}><a href="/auth/login">Login</a></li>
         <li role="presentation" {{#equal active 'register'}}class="active"{{/equal}}><a href="/auth/register">Register</a></li>
       </ul>
