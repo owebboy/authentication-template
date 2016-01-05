@@ -18,8 +18,9 @@
           <ul class="nav navbar-nav navbar-right">
             {{#if user}}
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/user/{{user.id}}">@{{user.username}} <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@{{user.username}} <span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li><a href="/user/{{user.id}}">User Page</a></li>
                 <li><a href="/auth/update">Settings</a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="/auth/logout">Logout</a></li>
@@ -35,5 +36,10 @@
     </header>
 
     {{{body}}}
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script>$('.dropdown-toggle').dropdown()</script>
   </body>
 </html>

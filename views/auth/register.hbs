@@ -16,22 +16,36 @@
     {{/if}}
 
     <div class="form-group">
-      <input class="form-control" type="text" name="username" placeholder="username">
+      <label for="username">Username</label>
+      <input class="form-control" type="text" name="username" id="username" placeholder="username">
     </div>
 
     <div class="form-group">
-      <input class="form-control" type="text" name="name" placeholder="name">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" name="name" id="name" placeholder="name">
     </div>
 
     <div class="form-group">
-      <input class="form-control" type="email" name="email" placeholder="email">
+      <label for="email">Email</label>
+      <input class="form-control" type="email" name="email" id="email" placeholder="email">
     </div>
 
-    <div class="form-group">
-      <input class="form-control" type="password" name="password" placeholder="password">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input class="form-control" type="password" name="password" id="password" placeholder="password">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="confirm">Confirm Password</label>
+          <input class="form-control" type="password" name="confirm" id="confirm" placeholder="confirm password">
+        </div>
+      </div>
     </div>
 
-    <button class="btn btn-primary" type="submit">log in</button>
+    <button class="btn btn-primary" type="submit">register</button>
     <a href="/"><button class="btn btn-warning" type="button">cancel</button></a>
 
   </form>
