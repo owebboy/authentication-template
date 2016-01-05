@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
   </head>
   <body>
-    <br>
-    <header class="container">
+    <header>
       <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
           <ul class="nav navbar-nav">
@@ -33,10 +32,6 @@
           </ul>
         </div>
       </nav>
-      <ul class="nav nav-tabs nav-justified">
-        <li role="presentation" {{#equal active 'login'}}class="active"{{/equal}}><a href="/auth/login">Login</a></li>
-        <li role="presentation" {{#equal active 'register'}}class="active"{{/equal}}><a href="/auth/register">Register</a></li>
-      </ul>
     </header>
 
     {{{body}}}
