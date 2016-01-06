@@ -6,6 +6,7 @@
     "start": "node ./bin/www",
     "local": "heroku local"
   },
+  "main": "app.js",
   "author": "Oliver Pope",
   "license": "MIT",
   "dependencies": {

@@ -14,35 +14,30 @@ router.get('/setup', function (req, res, next) {
     // handle error
     if (err) return next(err);
 
-    console.log(account);
-
     // check if first admin
-    if (account === null) {
+    if (account.length > 0) {
 
       console.log('account found... rejecting');
 
       res.redirect('/');
 
     } else {
-
+      
       console.log('no account found... creating user');
 
       // register account
       Account.register(new Account({
         username: 'admin',
-        name: 'Administrator'
+        name: 'Administrator',
+        role: 'admin'
       }), 'admin', function(err, account) {
 
         // handle error
         if (err) return next(err);
-
-        // save user and authenticate
-        passport.authenticate('local')(req, res, function() {
-          req.session.save(function(err) {
-            if (err) return next(err);
-            res.redirect('/admin');
-          });
-        });
+        
+        // send them to login with admin/admin
+        res.redirect('/auth/login');
+        
       });
 
     }
@@ -66,7 +61,7 @@ router.get('/', ensureAuthenticated, function (req, res, next) {
       if (err) return next(err);
 
       // render admin
-      res.render('admin', {
+      res.render('admin/home', {
         user: req.user,
         account: account
       });
