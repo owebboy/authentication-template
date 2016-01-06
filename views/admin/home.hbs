@@ -1,0 +1,18 @@
+<div class="container">
+
+  <h4>Administration</h4>
+  <hr>
+
+  <!-- list users -->
+
+  {{#each account}}
+  <div class="row">
+    <div class="col-md-6">
+      <h2>{{username}}</h2>
+      <h4>{{name}}</h4>
+      <h4>{{email}}</h4>
+    </div>
+  </div>
+  {{/each}}
+
+</div>

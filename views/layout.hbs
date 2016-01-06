@@ -22,6 +22,9 @@
               <ul class="dropdown-menu">
                 <li><a href="/user/{{user.id}}">User Page</a></li>
                 <li><a href="/auth/update">Settings</a></li>
+                {{#equal user.role 'admin'}}
+                <li><a href="/admin">Administrator</a></li>
+                {{/equal}}
                 <li role="separator" class="divider"></li>
                 <li><a href="/auth/logout">Logout</a></li>
               </ul>
