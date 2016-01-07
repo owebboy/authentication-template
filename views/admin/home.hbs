@@ -6,24 +6,26 @@
   <!-- list users -->
 
   <div class="list-group">
-    
+
     <p class="lead">Users</p>
-    
+
     {{#each account}}
-    <button type="button" 
-      data-toggle="modal" 
-      data-target="adminUpdateModal" 
+    <button type="button"
+      data-toggle="modal"
+      data-target="#adminUpdateModal"
       data-username="{{username}}"
       data-email="{{email}}"
       data-name="{{name}}"
       data-role="{{role}}"
+      data-id="{{id}}"
+      data-current="{{../user.id}}"
       class="list-group-item {{#equal role 'admin'}}list-group-item-success{{/equal}}">
-      
+
       {{username}}
-      
+
     </button>
     {{/each}}
-    
+
   </div>
 
 </div>
@@ -38,54 +40,39 @@
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
       <div class="modal-body">
-        <form method="post">
-          
+        <form method="post" id="adminUpdateForm">
+
           <div class="form-group">
             <label for="username">Username</label>
             <input class="form-control" type="text" placeholder="username" name="username">
           </div>
-          
+
           <div class="form-group">
             <label for="email">Email</label>
             <input class="form-control" type="email" placeholder="email" name="email">
           </div>
-          
+
           <div class="form-group">
             <label for="name">Name</label>
             <input class="form-control" type="text" placeholder="name" name="name">
           </div>
-          
+
+          <input type="hidden" name="role">
+
         </form>
       </div>
       <div class="modal-footer">
-        <div id="admin"></div>
+
+        <div class="pull-left">
+          <div id="admin"></div>
+        </div>
+
+        <div id="remove"></div>
+
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary" form="adminUpdateForm">Save changes</button>
+
       </div>
     </div>
   </div>
 </div>
-
-<script>
-  $('#adminUpdateModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget)
-    
-    var username = button.data('username');
-    var email = button.data('email');
-    var name = button.data('name');
-    var role = button.date('role');
-    var id = button.date('id');
-    
-    var modal = $(this);
-    modal.find('.modal-title').text('Update ' + name);
-    modal.find('.modal-body input[name="username"]').val(username);
-    modal.find('.modal-body input[name="email"]').val(email);
-    modal.find('.modal-body input[name="name"]').val(name);
-    modal.find('.modal-body form').attribute('action', '/admin/update' + id);
-    if (role === 'admin') {
-      modal.find('.modal-footer #admin').write('<a class="btn btn-danger" href="/admin/demote/' + id + '">Demote</a>');
-    } else {
-      modal.find('.modal-footer #admin').write('<a class="btn btn-info" href="/admin/promote/' + id + '">Promote</a>');
-    }
-  });
-</script>

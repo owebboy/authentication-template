@@ -22,7 +22,7 @@ router.get('/setup', function (req, res, next) {
       res.redirect('/');
 
     } else {
-      
+
       console.log('no account found... creating user');
 
       // register account
@@ -34,10 +34,10 @@ router.get('/setup', function (req, res, next) {
 
         // handle error
         if (err) return next(err);
-        
+
         // send them to login with admin/admin
         res.redirect('/auth/login');
-        
+
       });
 
     }
@@ -175,7 +175,7 @@ router.post('/update/:id', ensureAuthenticated, function (req, res, next) {
 // [REMOVE ACCOUNT] //
 // ---------------- //
 
-router.post('/remove/:id', ensureAuthenticated, function (req, res, next) {
+router.get('/remove/:id', ensureAuthenticated, function (req, res, next) {
 
   // check if admin
   if (req.user.role === 'admin') {

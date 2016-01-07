@@ -1,21 +1,15 @@
 <div class="container">
 
-  <div class="row">
+  <h4>Users</h4>
+  <hr>
 
-    <h4>Users</h4>
-    <hr>
-
-  </div>
-
-  <div class="row">
-    <div class="list-group">
-      {{#each account}}
-      <a class="list-group-item" href="/user/{{id}}">
-        <h4 class="list-group-item-heading">{{username}}</h4>
-        <p class="list-group-item-text">{{email}}</p>
-      </a>
-      {{/each}}
-    </div>
+  <div class="list-group">
+    {{#each account}}
+    <a class="list-group-item" href="/user/{{id}}">
+      <h4 class="list-group-item-heading">{{username}}</h4>
+      <p class="list-group-item-text">{{email}}</p>
+    </a>
+    {{/each}}
   </div>
 
 </div>
